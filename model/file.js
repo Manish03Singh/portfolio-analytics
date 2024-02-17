@@ -28,6 +28,10 @@ const fileSchema = new mongoose.Schema({
     date : {
         type : String,
         require: true
+    },
+    visit : {
+        type : Number,
+        require: true
     }
 })
 

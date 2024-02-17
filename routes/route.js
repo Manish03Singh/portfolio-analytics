@@ -13,6 +13,7 @@ router.post('/addData',  async (req, res) => {
             latitude : req.body.latitude,
             longitude : req.body.longitude,
             date : req.body.date,
+            visit : 1
         }
         const file = await File.find({ip : entry.ip, route : entry.route});
         
@@ -21,6 +22,7 @@ router.post('/addData',  async (req, res) => {
         } else {
             const oldEntry = await File.findById(file[0]._id);
             oldEntry.date = entry.date;
+            oldEntry.visit++;
             await oldEntry.save();
         }
 
