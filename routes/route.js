@@ -7,13 +7,14 @@ router.post('/addData',  async (req, res) => {
     try {
         const entry = {
             ip : req.body.ip,
+            route : req.body.route,
             city : req.body.city,
             country : req.body.country,
             latitude : req.body.latitude,
             longitude : req.body.longitude,
             date : req.body.date,
         }
-        const file = await File.find({latitude : entry.latitude, longitude : entry.longitude});
+        const file = await File.find({ip : entry.ip, route : entry.route});
         
         if(Object.keys(file).length === 0){
             const newEntry = await File.create(entry);

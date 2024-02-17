@@ -5,6 +5,10 @@ const fileSchema = new mongoose.Schema({
         type : String,
         require : true
     },
+    route : {
+        type : String,
+        require : true
+    },
     city : {
         type : String,
         require : true
